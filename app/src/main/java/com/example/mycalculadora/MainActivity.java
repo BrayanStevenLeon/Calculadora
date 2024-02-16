@@ -2,6 +2,7 @@ package com.example.mycalculadora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btFactorial;
     private Button btFibonacci;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,24 @@ public class MainActivity extends AppCompatActivity {
         btDividir = findViewById(R.id.btDividir);
         btFactorial = findViewById(R.id.btfactorial);
         btFibonacci = findViewById(R.id.btfibonacci);
+
+        Button btn_Atras = findViewById(R.id.btn_Atras);
+        btn_Atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn_Salir = findViewById(R.id.btn_Salir);
+        btn_Salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intent);
+            }
+        });
 
         btSumar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 return fibonacci(n - 1) + fibonacci(n - 2);
             }
         }
+
     }
 }
 
